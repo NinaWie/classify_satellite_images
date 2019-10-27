@@ -36,13 +36,17 @@ pip install  -r requirements.txt
 
 ## Extract features and cluster
 
-All code for extracting the features and clustering can be found in the notebook vgg_kmeans. As training data we take the tiles directory and the tiles2 directory which can be found in our dataset. You have to adjust the file paths, apart from that it should be well documented in the notebook itself how to run it.
+All code for extracting the features and clustering can be found in the notebook vgg_kmeans. You have to adjust the file paths, apart from that it should be well documented in the notebook itself how to run it.
+
+### Dataset
+
+One possible dataset that was used is the public [Merced Landuse Dataset](http://weegee.vision.ucmerced.edu/datasets/landuse.html). Apart from that, I had private data available which I might make available soon.  
 
 ## Train DL model
 
-Again, the training data is loaded from the tiles and tiles2 directory which is assumed to be located at two levels above this folder. The file path is actually specified in the dictioary of the labels, which is in this folder as well. Execute `python train.py` to train on all the data specified in the labels2641_improved.json file. 
+I aim to update the code such that it is more flexible for different input data. So far, you need to adjust the first part of the code in the train_model.py file in order to load your own data. In the end, the image data need to be of size (#data x 256 x 256 x 3) and the ground truth labels need to be one hot encoded vectors of size (#data x #classes), but for one-hot-encoding you might also use the function provided. 
 
-## Predict labels for new data
+### Test DL model on new data
 
 Run 
 ```bash
